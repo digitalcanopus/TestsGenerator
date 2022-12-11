@@ -42,5 +42,9 @@ internal static class Program
             Console.WriteLine($"invalid degree of writing parallelism. integer expected, not {args[4]}");
             return;
         }
+
+        var Generation = new Generation(degreeOfReadingParallelism, degreeOfGenerationParallelism,
+            degreeOfWritingParallelism, outputDir);
+        await Generation.Generate(correctInputFiles);
     }
 }
