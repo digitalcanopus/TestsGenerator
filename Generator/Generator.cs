@@ -47,8 +47,7 @@ namespace Generator
             return classesDeclarations.Select(classData => new ClassInfo(classData.ClassName,
                 CompilationUnit()
                     .WithUsings(new SyntaxList<UsingDirectiveSyntax>(usings)
-                    .Add(UsingDirective(QualifiedName(IdentifierName("NUnit"), IdentifierName("Framework"))))
-                    .Add(UsingDirective(IdentifierName("Moq"))))
+                    .Add(UsingDirective(QualifiedName(IdentifierName("NUnit"), IdentifierName("Framework")))))
                     .AddMembers(classData.TestClassDeclarationSyntax)
                     .NormalizeWhitespace().ToFullString())).ToList();
         }
